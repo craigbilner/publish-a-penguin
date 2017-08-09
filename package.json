@@ -1,0 +1,26 @@
+{
+  "name": "publish-a-penguin",
+  "version": "0.0.1",
+  "description": "Testing lerna, Travis and publishing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbilner/publish-a-penguin.git"
+  },
+  "keywords": [
+    "lerna",
+    "travis"
+  ],
+  "author": "Craig Bilner",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/craigbilner/publish-a-penguin/issues"
+  },
+  "homepage": "https://github.com/craigbilner/publish-a-penguin#readme",
+  "devDependencies": {
+    "lerna": "^2.0.0"
+  }
+}
