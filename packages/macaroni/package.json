@@ -1,5 +1,5 @@
 {
-  "name": "macaroni",
+  "name": "@rockhopper/macaroni",
   "version": "0.0.1",
   "description": "a test penguin",
   "main": "index.js",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/craigbilner/publish-a-penguin/issues"
   },
-  "homepage": "https://github.com/craigbilner/publish-a-penguin#readme"
+  "homepage": "https://github.com/craigbilner/publish-a-penguin#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }

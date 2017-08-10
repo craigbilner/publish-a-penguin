@@ -1,5 +1,5 @@
 {
-  "name": "emperor",
+  "name": "@rockhopper/emperor",
   "version": "0.0.1",
   "description": "Some penguin stuff",
   "main": "index.js",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/craigbilner/publish-a-penguin/issues"
   },
-  "homepage": "https://github.com/craigbilner/publish-a-penguin#readme"
+  "homepage": "https://github.com/craigbilner/publish-a-penguin#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
