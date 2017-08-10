@@ -26,6 +26,7 @@ fi
 NOT_TAGGED=false
 if [[ !$TRAVIS_TAG ]]
 then
+  echo "AAHAHAHAAHAHAHAH"
   NOT_TAGGED=true
 fi
 
