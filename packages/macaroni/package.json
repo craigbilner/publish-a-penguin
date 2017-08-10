@@ -1,6 +1,6 @@
 {
   "name": "@rockhopper/macaroni",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a test penguin",
   "main": "index.js",
   "scripts": {
