@@ -35,6 +35,21 @@ then
   echo "yes! 5"
 fi
 
+if [[ $TRAVIS_BRANCH == 'add-logging' ]]
+then
+  echo "yes! 6"
+fi
+
+if [[ $NOT_TAGGED ]]
+then
+  echo "yes! 7"
+fi
+
+if [[ -z $TRAVIS_PULL_REQUEST ]]
+then
+  echo "yes! 8"
+fi
+
 if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_TAG = '' && -z $TRAVIS_PULL_REQUEST ]]
 then
   # set npm credentials
