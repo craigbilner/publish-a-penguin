@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo $(printf "Running publish script %s, %s, %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
+echo $(printf "Running publish script tb: %s, tt: %s, tpr: %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
 
-if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_TAG == 'false' && -z $TRAVIS_PULL_REQUEST ]]
+if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && -z $TRAVIS_PULL_REQUEST ]]
 then
   # set npm credentials
   echo "Setting up npm"
