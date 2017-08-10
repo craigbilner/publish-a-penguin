@@ -2,7 +2,7 @@
 
 echo $(printf "Running publish script %s, %s, %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
 
-if [[ $TRAVIS_BRANCH == 'master' && -z $TRAVIS_TAG ]]
+if [[ $TRAVIS_BRANCH == 'master' && -z $TRAVIS_TAG && -z $TRAVIS_PULL_REQUEST ]]
 then
   # set npm credentials
   echo "Setting up npm"
