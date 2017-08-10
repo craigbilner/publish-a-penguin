@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ $TRAVIS_BRANCH == 'master' -a $TRAVIS_TAG == false ]]; then
+echo $(printf "Running publish script %s, %s" $TRAVIS_BRANCH $TRAVIS_TAG)
+
+if [[ $TRAVIS_BRANCH == 'master' -a $TRAVIS_TAG == false ]]
+then
   # set npm credentials
   echo "Setting up npm"
   echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
@@ -18,4 +21,6 @@ if [[ $TRAVIS_BRANCH == 'master' -a $TRAVIS_TAG == false ]]; then
 
   echo "Pushing to master"
   git push origin master --tags --quiet > /dev/null 2>&1
+else
+  echo "Doing nothing"
 fi
