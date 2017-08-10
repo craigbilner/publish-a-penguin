@@ -45,7 +45,7 @@ then
   echo "yes! 7"
 fi
 
-if [[ -z $TRAVIS_PULL_REQUEST ]]
+if [[ !$TRAVIS_PULL_REQUEST ]]
 then
   echo "yes! 8"
 fi
