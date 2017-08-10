@@ -2,7 +2,15 @@
 
 echo $(printf "Running publish script tb: %s, tt: %s, tpr: %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
 
-if [[ $TRAVIS_TAG == 'false' ]]; then echo "YAY" fi
+if [[ $TRAVIS_TAG == 'false' ]]
+then
+  echo "YAY1"
+fi
+
+if [[ $TRAVIS_TAG = false ]]
+then
+  echo "YAY2"
+fi
 
 if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && -z $TRAVIS_PULL_REQUEST ]]
 then
