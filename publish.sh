@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
+set -e
 
 echo $(printf "Running publish script tb: %s, tt: %s, tpr: %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
 
-if [[ !$TRAVIS_TAG ]]
-then
-  echo "YAY1"
-fi
-
-if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && -z $TRAVIS_PULL_REQUEST ]]
+if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_TAG = '' && -z $TRAVIS_PULL_REQUEST ]]
 then
   # set npm credentials
   echo "Setting up npm"
@@ -19,6 +15,8 @@ then
 
   git remote set-url origin https://${GH_TOKEN}@github.com/craigbilner/publish-a-penguin.git > /dev/null 2>&1
   git checkout master
+
+  # make sure we only publish if we are at the head of master
 
   # bump versions, create change logs, create tags, publish to npm
   MESSAGE=$(printf "chore: Publish %s" $TRAVIS_PULL_REQUEST_BRANCH)
