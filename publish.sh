@@ -13,6 +13,7 @@ then
   git config user.email "publish@ghbot.com"
 
   git remote set-url origin https://${GH_TOKEN}@github.com/craigbilner/publish-a-penguin.git > /dev/null 2>&1
+  git checkout master
 
   # bump versions, create change logs, create tags, publish to npm
   MESSAGE=$(printf "chore: Publish %s" $TRAVIS_PULL_REQUEST_BRANCH)
