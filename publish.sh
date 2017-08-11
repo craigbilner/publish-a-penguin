@@ -50,7 +50,7 @@ echo "Setting up npm"
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
 
 # bump versions, create change logs, create tags, publish to npm
-PR_MSG=$(git log --pretty=format:"%s" -1)
+PR_MSG=$(git log --pretty=format:"%h" -1)
 MESSAGE=$(printf "chore: Publish %s" $PR_MSG)
 echo $MESSAGE
 lerna publish --conventional-commits --yes --concurrency=1 --exact -m $MESSAGE
