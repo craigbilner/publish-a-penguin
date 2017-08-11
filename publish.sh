@@ -21,8 +21,8 @@ then
   git checkout master
 
   # check we're at the tip of master
-  echo $(printf "Using commit" $TRAVIS_COMMIT)
   TIP_COMMIT=$(git rev-parse HEAD)
+  echo $(printf "Travis commit: %s, Head commit: %s" $TRAVIS_COMMIT, $TIP_COMMIT)
 
   if [[ TIP_COMMIT != $TRAVIS_COMMIT ]]
   then
@@ -33,7 +33,8 @@ then
   # make sure we only publish if we are at the head of master
 
   # bump versions, create change logs, create tags, publish to npm
-  MESSAGE=$(printf "chore: Publish %s" $TRAVIS_PULL_REQUEST_BRANCH)
+  PR_MSG=$(git log --pretty=format:"%s" -1)
+  MESSAGE=$(printf "chore: Publish %s" $PR_MSG)
   echo $MESSAGE
   lerna publish --conventional-commits --yes --concurrency=1 --exact -m $MESSAGE
 
