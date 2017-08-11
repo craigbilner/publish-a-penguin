@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-echo $(printf "Running publish script tb: %s, tt: %s, tpr: %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
+echo "Running publish script tb"
+
+echo $(printf "TRAVIS_BRANCH %s" $TRAVIS_BRANCH)
+echo $(printf "TRAVIS_TAG %s" $TRAVIS_TAG)
+echo $(printf "TRAVIS_PULL_REQUEST %s" $TRAVIS_PULL_REQUEST)
 
 if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && !$TRAVIS_PULL_REQUEST ]]
 then
@@ -15,6 +19,16 @@ then
 
   git remote set-url origin https://${GH_TOKEN}@github.com/craigbilner/publish-a-penguin.git > /dev/null 2>&1
   git checkout master
+
+  # check we're at the tip of master
+  echo $(printf "Using commit" $TRAVIS_COMMIT)
+  TIP_COMMIT=$(git rev-parse HEAD)
+
+  if [[ TIP_COMMIT != $TRAVIS_COMMIT ]]
+  then
+    echo "Not on the tip of master!"
+    exit 0
+  fi
 
   # make sure we only publish if we are at the head of master
 
