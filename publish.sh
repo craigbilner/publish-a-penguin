@@ -11,6 +11,7 @@ git config user.name "Publish Bot"
 git config user.email "publish@ghbot.com"
 
 git remote set-url origin https://${GH_TOKEN}@github.com/craigbilner/publish-a-penguin.git > /dev/null 2>&1
+git diff
 git checkout master
 
 TIP_COMMIT=$(git rev-parse HEAD)
