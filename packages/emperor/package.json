@@ -1,6 +1,6 @@
 {
   "name": "@rockhopper/emperor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Some penguin stuff",
   "main": "index.js",
   "scripts": {
