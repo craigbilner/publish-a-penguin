@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.5"></a>
+## [0.0.5](https://github.com/craigbilner/publish-a-penguin/compare/@rockhopper/emperor@0.0.4...@rockhopper/emperor@0.0.5) (2017-08-11)
+
+
+### Bug Fixes
+
+* typo ([d207a5a](https://github.com/craigbilner/publish-a-penguin/commit/d207a5a))
+
+
+
+
 <a name="0.0.4"></a>
 ## [0.0.4](https://github.com/craigbilner/publish-a-penguin/compare/@rockhopper/emperor@0.0.2...@rockhopper/emperor@0.0.4) (2017-08-11)
 
