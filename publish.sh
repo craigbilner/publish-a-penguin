@@ -21,8 +21,8 @@ then
   git checkout master
 
   # check we're at the tip of master
-  echo $(printf "Using commit" $TRAVIS_COMMIT)
   TIP_COMMIT=$(git rev-parse HEAD)
+  echo $(printf "Travis commit: %s, Head commit: %s" $TRAVIS_COMMIT, $TIP_COMMIT)
 
   if [[ TIP_COMMIT != $TRAVIS_COMMIT ]]
   then
