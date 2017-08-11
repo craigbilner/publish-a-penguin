@@ -6,23 +6,23 @@ echo "Running publish script tb"
 echo $(printf "TRAVIS_BRANCH %s" $TRAVIS_BRANCH)
 echo $(printf "TRAVIS_PULL_REQUEST %s" $TRAVIS_PULL_REQUEST)
 
+if [[ $TRAVIS_BRANCH != 'master' ]]
+then
+  echo "Not on master"
+  exit 0
+fi
+
+if [[ $TRAVIS_PULL_REQUEST != 'false' ]]
+then
+  echo "We don't publish for PRs"
+  exit 0
+fi
+
 # set up git
 git config user.name "Publish Bot"
 git config user.email "publish@ghbot.com"
 
 git remote set-url origin https://${GH_TOKEN}@github.com/craigbilner/publish-a-penguin.git > /dev/null 2>&1
-git diff
-git checkout master
-
-TIP_COMMIT=$(git rev-parse HEAD)
-echo $(printf "Travis commit: %s, Head commit: %s" $TRAVIS_COMMIT $TIP_COMMIT)
-
-# make sure we only publish if we are at the head of master
-if [[ $TIP_COMMIT != $TRAVIS_COMMIT ]]
-then
-  echo "Not on the tip of master!"
-  exit 0
-fi
 
 TAGS=$(git tag -l --points-at HEAD)
 
@@ -33,15 +33,15 @@ then
   exit 0
 fi
 
-if [[ $TRAVIS_BRANCH != 'master' ]]
-then
-  echo "Not on master"
-  exit 0
-fi
+git checkout master
 
-if [[ $TRAVIS_PULL_REQUEST != 'false' ]]
+TIP_COMMIT=$(git rev-parse HEAD)
+echo $(printf "Travis commit: %s, Head commit: %s" $TRAVIS_COMMIT $TIP_COMMIT)
+
+# make sure we only publish if we are at the head of master
+if [[ $TIP_COMMIT != $TRAVIS_COMMIT ]]
 then
-  echo "We don't publish for PRs"
+  echo "Not on the tip of master!"
   exit 0
 fi
 
