@@ -3,7 +3,23 @@ set -e
 
 echo $(printf "Running publish script tb: %s, tt: %s, tpr: %s" $TRAVIS_BRANCH $TRAVIS_TAG $TRAVIS_PULL_REQUEST)
 
-if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_TAG = '' && -z $TRAVIS_PULL_REQUEST ]]
+if [[ $TRAVIS_TAG == 'false' ]]
+then
+  echo "1"
+fi
+
+
+if [[ $TRAVIS_TAG = 'false' ]]
+then
+  echo "2"
+fi
+
+if [[ !$TRAVIS_TAG ]]
+then
+  echo "3"
+fi
+
+if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_TAG == 'false' && !$TRAVIS_PULL_REQUEST ]]
 then
   # set npm credentials
   echo "Setting up npm"
