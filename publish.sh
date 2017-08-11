@@ -7,27 +7,7 @@ echo $(printf "TRAVIS_BRANCH %s" $TRAVIS_BRANCH)
 echo $(printf "TRAVIS_TAG %s" $TRAVIS_TAG)
 echo $(printf "TRAVIS_PULL_REQUEST %s" $TRAVIS_PULL_REQUEST)
 
-if [[ $TRAVIS_PULL_REQUEST == 'false' ]]
-then
-  echo "1"
-fi
-
-if [[ $TRAVIS_PULL_REQUEST = 'false' ]]
-then
-  echo "2"
-fi
-
-if [[ !$TRAVIS_PULL_REQUEST ]]
-then
-  echo "3"
-fi
-
-re='^[0-9]+$'
-if ! [[ $TRAVIS_PULL_REQUEST =~ $re ]] ; then
-   echo "NOT A PR!"
-fi
-
-if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && !$TRAVIS_PULL_REQUEST ]]
+if [[ $TRAVIS_BRANCH == 'master' && !$TRAVIS_TAG && $TRAVIS_PULL_REQUEST == 'false' ]]
 then
   # set npm credentials
   echo "Setting up npm"
