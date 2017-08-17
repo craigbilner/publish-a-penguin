@@ -3,8 +3,8 @@ set -e
 
 echo "Running publish script tb"
 
-echo GH_TOKEN
-echo NPM_TOKEN
+echo $GH_TOKEN
+echo $NPM_TOKEN
 
 echo $(printf "TRAVIS_BRANCH %s" $TRAVIS_BRANCH)
 echo $(printf "TRAVIS_PULL_REQUEST %s" $TRAVIS_PULL_REQUEST)
